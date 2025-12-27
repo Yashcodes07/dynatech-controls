@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const members = [
@@ -10,7 +10,7 @@ const members = [
     name: "Ns Kushawaha",
     role: "Company CEO",
     quote:
-      "We deliver cutting-edge digital solutions that empower businesses to grow, transform, and lead in a competitive world.",
+      "We deliver cutting-edge Hardware solutions that empower businesses to grow, transform, and lead in a competitive world.",
     image: "/Ns kushwaha.png",
   },
   {
@@ -33,17 +33,25 @@ export default function LeadershipSlider() {
   const [index, setIndex] = useState(0);
 
   const prev = () =>
-    setIndex((index - 1 + members.length) % members.length);
+    setIndex((prevIndex) => (prevIndex - 1 + members.length) % members.length);
+
   const next = () =>
-    setIndex((index + 1) % members.length);
+    setIndex((prevIndex) => (prevIndex + 1) % members.length);
+
+  // 🔥 AUTO SLIDE EVERY 3 SECONDS
+  useEffect(() => {
+    const interval = setInterval(() => {
+      next();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const member = members[index];
 
   return (
     <section id="home" className="py-10 bg-white scroll-mt-24">
-      {/* Soft red outer border */}
       <div className="mx-auto max-w-7xl rounded-3xl bg-red-600/10 p-4">
-        {/* White card */}
         <div className="relative rounded-2xl bg-red-50 px-10 py-14 shadow-xl">
           <div className="grid items-center gap-12 md:grid-cols-2">
 

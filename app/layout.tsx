@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SessionWrapper from "@/components/SessionWrapper";
@@ -13,6 +14,7 @@ export default function RootLayout({
         <SessionWrapper>
           <Navbar />
           {children}
+          <Footer/>
         </SessionWrapper>
       </body>
     </html>

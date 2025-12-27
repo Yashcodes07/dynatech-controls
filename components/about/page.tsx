@@ -44,8 +44,8 @@ export default function AboutPage() {
           {/* RIGHT TEXT */}
           <div className="space-y-6 text-gray-700">
             <p>
-              Founded in 2015 by <strong>Mr.Ns Kushawaha</strong> and{" "}
-              <strong>Mrs. Bhawna Kushwaha</strong>, Authentic Engineers have a
+              Founded in 2001 by <strong>Mr.N S Kushawaha</strong> and{" "}
+              <strong>Mrs. Bhawna Kushwaha</strong>,Dynatech Controls have a
               strong passion for Industrial Automation. The company geared up
               from the beginning by providing low-cost automation solutions
               using microcontrollers to industries such as Pad Printing,
@@ -55,7 +55,7 @@ export default function AboutPage() {
             <p>
               Our core strength lies in delivering automation solutions in the
               field of <strong>Programmable Logic Controllers (PLC)</strong>,
-              Data Integration, Data Traceability, and reliable End-of-Line
+              SPM Manufacturing,Pneumatics, and reliable End-of-Line
               Testing Machines and Vision Inspection Machines.
             </p>
 

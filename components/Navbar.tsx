@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone, Clock } from "lucide-react";
 
-const sections = ["home", "about", "services", "contact"];
+const sections = ["home", "about", "services","products", "contact"];
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
