@@ -1,20 +1,28 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function AboutPage() {
   // Animation Variants
-  const fadeInUp = {
+  const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: "easeOut" } 
+    }
   };
 
-  const imageVariant = {
+  const imageVariant: Variants = {
     hidden: { opacity: 0, scale: 0.95, x: -20 },
-    visible: { opacity: 1, scale: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      x: 0, 
+      transition: { duration: 0.8, ease: "easeOut" } 
+    }
   };
-
   return (
     <section className="bg-white py-20 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6">
@@ -74,7 +82,7 @@ export default function AboutPage() {
             
             <div className="relative z-10 overflow-hidden rounded-2xl border-[12px] border-white shadow-2xl">
               <Image
-                src="/img-2.jpg"
+                src="/img-2.webp"
                 alt="About Dynatech Controls Team"
                 width={600}
                 height={500}

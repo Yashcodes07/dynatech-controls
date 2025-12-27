@@ -26,7 +26,7 @@ export default function ContactPage() {
           {/* LEFT IMAGE SECTION */}
           <div className="relative w-full lg:w-1/2 h-[300px] lg:h-auto">
             <Image
-              src="/img-1.jpg"
+              src="/img-1.webp"
               alt="Customer Support"
               fill
               className="object-cover"
