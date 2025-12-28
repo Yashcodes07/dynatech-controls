@@ -25,7 +25,7 @@ const Footer = () => {
           <div className="text-sm space-y-1">
             <p><strong>Phone:</strong> + 91 81301-11432</p>
             <p><strong>Phone:</strong> + 91 72899-89683</p>
-            <p className="pt-2"><strong>Email:</strong> Shubhankar.singh@dynatechcontrols.in</p>
+            <p className="pt-2"><strong>Email:</strong>Shubhankar.singh@dynatechcontrols.in</p>
             <p><strong>Email:</strong> Praval.singh@dynatechcontrols.in</p>
           </div>
         </div>

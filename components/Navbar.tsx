@@ -5,29 +5,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone, Clock } from "lucide-react";
 
-const sections = ["home", "about", "services","products", "contact"];
+const sections = ["home", "about", "services", "products", "team", "contact"];
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
 
   useEffect(() => {
     const onScroll = () => {
-      const scrollPos = window.scrollY + 140;
+      const offset = 150; // navbar + top strip height
+
+      let current = "home";
 
       sections.forEach((id) => {
         const el = document.getElementById(id);
         if (!el) return;
 
-        const top = el.offsetTop;
-        const height = el.offsetHeight;
+        const rect = el.getBoundingClientRect();
 
-        if (scrollPos >= top && scrollPos < top + height) {
-          setActive(id);
+        if (rect.top - offset <= 0 && rect.bottom - offset > 0) {
+          current = id;
         }
       });
+
+      setActive(current);
     };
 
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -41,11 +46,11 @@ export default function Navbar() {
               <Mail size={14} /> shubhankar.singh@dynatechcontrols.in
             </span>
             <span className="flex items-center gap-2">
-              <Phone size={14} /> +91-81301-11432  ||  +91-72899-89683
+              <Phone size={14} /> +91-81301-11432 || +91-72899-89683
             </span>
           </div>
           <span className="hidden md:flex items-center gap-2">
-            <Clock size={14} /> Mon – Sat 09:00 – 05:40
+            <Clock size={14} /> Mon – Sat 09:00 – 06:00
           </span>
         </div>
       </div>
@@ -77,11 +82,10 @@ export default function Navbar() {
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
 
-                {/* ANIMATED UNDERLINE */}
                 <span
-                  className={`absolute left-0 -bottom-0.5 h-[2px] w-full bg-red-600 transition-all duration-300 ${
+                  className={`absolute left-0 -bottom-0.5 h-[2px] w-full bg-red-600 transition-transform duration-300 origin-left ${
                     active === item ? "scale-x-100" : "scale-x-0"
-                  } origin-left`}
+                  }`}
                 />
               </a>
             ))}

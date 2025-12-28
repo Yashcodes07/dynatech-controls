@@ -7,20 +7,20 @@ export default function AboutPage() {
   // Animation Variants
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.6, ease: "easeOut" } 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
     }
   };
 
   const imageVariant: Variants = {
     hidden: { opacity: 0, scale: 0.95, x: -20 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      x: 0, 
-      transition: { duration: 0.8, ease: "easeOut" } 
+    visible: {
+      opacity: 1,
+      scale: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
     }
   };
   return (
@@ -28,7 +28,7 @@ export default function AboutPage() {
       <div className="mx-auto max-w-7xl px-6">
 
         {/* TOP HEADING SECTION */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -50,7 +50,7 @@ export default function AboutPage() {
             <div className="mt-2 h-1 w-20 bg-red-600 rounded-full" />
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
@@ -70,7 +70,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
 
           {/* LEFT IMAGE WITH DECORATION */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -79,60 +79,62 @@ export default function AboutPage() {
           >
             {/* Decorative background box */}
             <div className="absolute -bottom-6 -right-6 h-full w-full rounded-2xl bg-red-600/5 group-hover:bg-red-600/10 transition-colors duration-500" />
-            
+
             <div className="relative z-10 overflow-hidden rounded-2xl border-[12px] border-white shadow-2xl">
+
               <Image
-                src="/img-2.webp"
-                alt="About Dynatech Controls Team"
-                width={600}
+                src="/img-3.webp"
+                alt="Dynatech Controls Automation"
+                width={900}
                 height={500}
-                className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                 priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
               />
             </div>
           </motion.div>
 
           {/* RIGHT TEXT SECTION */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={{
-                visible: { transition: { staggerChildren: 0.2 } }
+              visible: { transition: { staggerChildren: 0.2 } }
             }}
             className="space-y-8 text-gray-700 leading-loose"
           >
             <motion.p variants={fadeInUp} className="text-lg">
-              Founded in <span className="font-bold text-red-600">2001</span> by <strong>Mr. N S Kushawaha</strong> and{" "}
-              <strong>Mrs. Bhawna Kushwaha</strong>, Dynatech Controls was born from a 
+              Founded in <span className="font-bold text-red-600">2000</span> by <strong>Mr. N S Kushawaha</strong> and{" "}
+              <strong>Mrs. Bhawna Kushwaha</strong>, Dynatech Controls was born from a
               strong passion for Industrial Automation.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="p-6 bg-red-50 rounded-xl border-l-4 border-red-600">
               <p className="font-medium">
                 Our core strength lies in delivering automation solutions in the
-                field of <span className="text-red-600">Programmable Logic Controllers (PLC)</span>, 
+                field of <span className="text-red-600">Programmable Logic Controllers (PLC)</span>,
                 SPM Manufacturing, Pneumatics, and Vision Inspection.
               </p>
             </motion.div>
 
             <motion.p variants={fadeInUp}>
-              We have been a reliable automation partner for decades, working with esteemed 
-              clients like <strong>Lumax Industries Ltd., FIEM Industries Ltd., Hella Electronics</strong>, 
-              and <strong>Padmini</strong>. Our commitment is to provide scalable, cost-effective 
+              We have been a reliable automation partner for decades, working with esteemed
+              clients like <strong>Lumax Industries Ltd., Hero Ltd., Omron Pvt Ltd</strong>,
+              and <strong>hindware atlantic Ltd</strong>. Our commitment is to provide scalable, cost-effective
               solutions for the modern factory.
             </motion.p>
 
             {/* Quick Stats Highlight */}
             <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-4 pt-4">
-               <div>
-                  <h4 className="text-2xl font-bold text-red-600">20+</h4>
-                  <p className="text-xs uppercase tracking-wider text-gray-500 font-bold">Years Experience</p>
-               </div>
-               <div>
-                  <h4 className="text-2xl font-bold text-red-600">50+</h4>
-                  <p className="text-xs uppercase tracking-wider text-gray-500 font-bold">Corporate Clients</p>
-               </div>
+              <div>
+                <h4 className="text-2xl font-bold text-red-600">25+</h4>
+                <p className="text-xs uppercase tracking-wider text-gray-500 font-bold">Years Experience</p>
+              </div>
+              <div>
+                <h4 className="text-2xl font-bold text-red-600">50+</h4>
+                <p className="text-xs uppercase tracking-wider text-gray-500 font-bold">Corporate Clients</p>
+              </div>
             </motion.div>
           </motion.div>
 
