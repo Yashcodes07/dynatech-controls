@@ -4,12 +4,12 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const categories = ["ALL", "MACHINE", "VISION", "OTHERS"];
+const categories = ["ALL", "MACHINE", "Testing Application", "OTHERS"];
 
 const products = [
     { id: 1, title: "Office Building", category: "OTHERS", image: "/building.webp", description: "Company office and infrastructure." },
     { id: 2, title: "EOL Poke Yoke Station", category: "MACHINE", image: "/img-4.webp", description: "Prevent errors and ensure product quality before dispatch." },
-    { id: 3, title: "Brake Stiffness Tester", category: "VISION", image: "/img-5.webp", description: "Measure and validate mechanical stiffness under controlled conditions." },
+    { id: 3, title: "Brake Stiffness Tester", category: "Testing Application", image: "/img-5.webp", description: "Measure and validate mechanical stiffness under controlled conditions." },
     { id: 4, title: "YMC BDG UPPER ASSY", category: "MACHINE", image: "/img-6.webp", description: "Dedicated precision assembly machine for repeatable operations." },
     { id: 5, title: "6 Axis Gluing Robot", category: "MACHINE", image: "/img-7.webp", description: "Accurate movement along complex paths for consistent glue beads." },
     { id: 6, title: "BMW Head Lamp ASSY", category: "MACHINE", image: "/img-8.webp", description: "Automated assembly system compliant with BMW standards." },

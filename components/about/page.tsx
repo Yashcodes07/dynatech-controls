@@ -117,12 +117,11 @@ export default function AboutPage() {
                 SPM Manufacturing, Pneumatics, and Vision Inspection.
               </p>
             </motion.div>
-
             <motion.p variants={fadeInUp}>
-              We have been a reliable automation partner for decades, working with esteemed
-              clients like <strong>Lumax Industries Ltd., Hero Ltd., Omron Pvt Ltd</strong>,
-              and <strong>hindware atlantic Ltd</strong>. Our commitment is to provide scalable, cost-effective
-              solutions for the modern factory.
+             <strong className="text-red-600">Why Choose Dyntech Controls?</strong><br></br>
+              Competitive costs , quality and delivery are crucial to your success in bussiness .
+              Dynatech team will find you the best solution that really works for you. 
+              Whether you have the seed of an idea or an innovation to get your products to market as quicklyand efficient as possible.
             </motion.p>
 
             {/* Quick Stats Highlight */}

@@ -61,10 +61,10 @@ export default function Navbar() {
 
           {/* LOGO */}
           <div className="flex items-center gap-3">
-            <Image src="/dc logo.webp" alt="Logo" width={42} height={42} />
+            <Image src="/dc logo.webp" alt="Logo" width={70} height={72} />
             <div>
-              <p className="font-bold text-red-600">Dynatech</p>
-              <p className="font-semibold text-black">Controls</p>
+              <p className="font-bold text-xl text-red-600">Dynatech</p>
+              <p className="font-semibold text-xl  text-black">Controls</p>
             </div>
           </div>
 
