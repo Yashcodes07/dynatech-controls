@@ -53,6 +53,7 @@ const Footer = () => {
             <li className="hover:text-red-600 transition-colors cursor-default">ROBOTIC WELDING</li>
             <li className="hover:text-red-600 transition-colors cursor-default">PNEUMATIC</li>
             <li className="hover:text-red-600 transition-colors cursor-default">JIG And Fixtures</li>
+            <li className="hover:text-red-600 transition-colors cursor-default">LASER MARKING</li>
           </ul>
         </div>
 

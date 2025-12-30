@@ -67,7 +67,7 @@ export default function HeroLanding() {
 
           <p className="anim-up mt-6 max-w-xl text-2xl text-gray-600" style={{ animationDelay: "400ms" }}>
             Automation <span className="relative inline-block">
-              <span className="relative z-10 font-semibold text-red-600">a better approach</span>
+              <span className="relative z-10 font-semibold text-red-600">a better approach......</span>
               <span className="anim-expand absolute bottom-1 left-0 h-3 w-full bg-pink-100" style={{ animationDelay: "800ms" }} />
             </span>
           </p>

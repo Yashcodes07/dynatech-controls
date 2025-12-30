@@ -4,15 +4,26 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const categories = ["ALL", "MACHINE", "Testing Application", "OTHERS"];
+const categories = [ "PAN INDIA PROJECTS", "INTERNATIONAL PROJECTS", "INFRASTRUCTURE"];
 
 const products = [
-    { id: 1, title: "Office Building", category: "OTHERS", image: "/building.webp", description: "Company office and infrastructure." },
-    { id: 2, title: "EOL Poke Yoke Station", category: "MACHINE", image: "/img-4.webp", description: "Prevent errors and ensure product quality before dispatch." },
-    { id: 3, title: "Brake Stiffness Tester", category: "Testing Application", image: "/img-5.webp", description: "Measure and validate mechanical stiffness under controlled conditions." },
-    { id: 4, title: "YMC BDG UPPER ASSY", category: "MACHINE", image: "/img-6.webp", description: "Dedicated precision assembly machine for repeatable operations." },
-    { id: 5, title: "6 Axis Gluing Robot", category: "MACHINE", image: "/img-7.webp", description: "Accurate movement along complex paths for consistent glue beads." },
-    { id: 6, title: "BMW Head Lamp ASSY", category: "MACHINE", image: "/img-8.webp", description: "Automated assembly system compliant with BMW standards." },
+    { id: 1, title: "Office Building", category: "INFRASTRUCTURE", image: "/building.webp", description: "Company office and infrastructure." },
+    { id: 2, title: "EOL Poke Yoke Station", category: "PAN INDIA PROJECTS", image: "/img-4.webp", description: "Prevent errors and ensure product quality before dispatch." },
+    { id: 3, title: "Brake Stiffness Tester", category: "PAN INDIA PROJECTS", image: "/img-5.webp", description: "Measure and validate mechanical stiffness under controlled conditions." },
+    { id: 4, title: "YMC BDG UPPER ASSY", category: "PAN INDIA PROJECTS", image: "/img-6.webp", description: "Dedicated precision assembly machine for repeatable operations." },
+    { id: 5, title: "6 Axis Gluing Robot", category: "PAN INDIA PROJECTS", image: "/img-7.webp", description: "Accurate movement along complex paths for consistent glue beads." },
+    { id: 6, title: "BMW Head Lamp ASSY", category: "PAN INDIA PROJECTS", image: "/img-8.webp", description: "Automated assembly system compliant with BMW standards." },
+    { id: 7, title: "Exported ", category: "INTERNATIONAL PROJECTS", image: "/img-10.webp", description: "Modern Assembly Line - RUSSIA" },
+    { id: 8, title: "RECEPTION AREA", category: "INFRASTRUCTURE", image: "/img-12.webp", description: "" },
+    { id: 9, title: "MD OFFICE", category: "INFRASTRUCTURE", image: "/img-13.webp", description: "" },
+    { id: 10, title: "OFFICE AREA", category: "INFRASTRUCTURE", image: "/img-11.webp", description: "" },
+    { id: 11, title: " ", category: "INTERNATIONAL PROJECTS", image: "/Uzbek.webp", description: "Modern Assembly Line - UZBEKISTAN" },
+    { id: 12, title: " ", category: "INTERNATIONAL PROJECTS", image: "/uzbek-2.webp", description: "Modern Assembly Line - SAUDI ARABIA" },
+    { id: 13, title: "MANUFACTURING AREA", category: "INFRASTRUCTURE", image: "/ASSEMBLY.webp", description: "" },
+    { id: 14, title: "ASSEMBLY AREA", category: "INFRASTRUCTURE", image: "/asse.webp", description: "" },
+    
+
+
 ];
 
 export default function ProductsGallery() {

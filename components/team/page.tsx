@@ -15,19 +15,21 @@ const testimonials = [
     },
     {
         name: "Mr Rakesh Kumar",
-        role: "HOD of Design",
+        role: "HOD - Design",
         description:
             "Leadership here encourages creativity, innovation, and ownership. Every project pushes us to do better.",
         experience: "15 yrs+",
-        photo: "/Rakesh.webp",
+        photo: "/rakesh (1).webp",
+        position: "50% 0%",
+
     },
     {
         name: "Mr Shubhankar Vikram Singh",
-        role: "Project Coordinator",
+        role: "Project Head",
         description:
             "Innovation and technology are at the heart of everything we build for our clients.",
         experience: "6 yrs+",
-        photo: "/SVS (2).webp",
+        photo: "/svs-3.webp",
         position: "50% 35%",
     },
     {
@@ -37,6 +39,7 @@ const testimonials = [
           "Ensuring operational excellence through streamlined workflows and strategic resource management to support our large-scale automation initiatives.",
                experience: "20 yrs+",
         photo: "/bk.webp",
+        position: "50% 0%",
     },
     {
         name: "Mr Praval Singh",
@@ -48,14 +51,14 @@ const testimonials = [
     },
     {
         name: "Mr Vipin Yadav",
-        role: "HOD of Application ",
+        role: "HOD - Application ",
         description:
             "Leading the design and deployment of specialized automation applications, ensuring every system is optimized for peak technical performance.",
          experience: "10 yrs+",
         photo: "/vipin.webp",
     },
     {
-        name: "Mr Amit ",
+        name: "Mr Amit Yadav",
         role: "Purchase Head",
         description:
          "Optimizing our supply chain and procurement strategies to ensure high-quality technical components are sourced efficiently for every project.",
