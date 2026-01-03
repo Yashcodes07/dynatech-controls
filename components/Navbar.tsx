@@ -74,30 +74,30 @@ export default function Navbar() {
               <a
                 key={item}
                 href={`#${item}`}
-                className={`relative pb-2 transition ${
-                  active === item
+                className={`relative pb-2 transition ${active === item
                     ? "text-red-600"
                     : "text-gray-700 hover:text-red-600"
-                }`}
+                  }`}
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
 
                 <span
-                  className={`absolute left-0 -bottom-0.5 h-[2px] w-full bg-red-600 transition-transform duration-300 origin-left ${
-                    active === item ? "scale-x-100" : "scale-x-0"
-                  }`}
+                  className={`absolute left-0 -bottom-0.5 h-[2px] w-full bg-red-600 transition-transform duration-300 origin-left ${active === item ? "scale-x-100" : "scale-x-0"
+                    }`}
                 />
               </a>
             ))}
           </nav>
 
           {/* CTA */}
-          <Link
-            href="#contact"
-            className="rounded-full bg-red-600 px-6 py-2 text-sm font-semibold text-white hover:bg-red-700"
+          <a
+            href="/DYNATECH BROCHURE.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-red-600 px-6 py-2 text-md font-semibold text-white hover:bg-red-700"
           >
-            Get Quote
-          </Link>
+            Download Brochure
+          </a>
         </div>
       </div>
 

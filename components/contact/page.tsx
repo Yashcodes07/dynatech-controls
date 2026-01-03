@@ -10,16 +10,41 @@ export default function ContactPage() {
     setIsVisible(true);
   }, []);
 
-
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const [formData, setFormData] = useState({
+    company: "",
+    name: "",
+    email: "",
+    message: "",
+  });
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setStatus("loading");
 
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+
       setStatus("success");
+      setFormData({
+        company: "",
+        name: "",
+        email: "",
+        message: "",
+      });
+
       setTimeout(() => setStatus("idle"), 3000);
-    }, 2000);
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong. Please try again.");
+      setStatus("idle");
+    }
   };
+
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-gray-50 via-red-50 to-white py-10 px-4">
       <style>{`
@@ -91,12 +116,7 @@ export default function ContactPage() {
 
           {/* LEFT IMAGE SECTION */}
           <div className={`relative w-full lg:w-1/2 h-[300px] lg:h-auto ${isVisible ? 'animate-slide-in-left' : ''}`}>
-            {/* <img
-              src="/img-1.webp"
-              alt="Customer Support"
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="eager"
-            /> */}
+
             <Image
               src="/img-1.webp"
               alt="Customer Support"
@@ -126,7 +146,7 @@ export default function ContactPage() {
               {/* Contact info cards */}
               <div className={`mt-8 space-y-3 ${isVisible ? 'animate-slide-up' : ''}`} style={{ animationDelay: '0.4s' }}>
                 {[
-                  { icon: Mail, text: "info@dynatech.com" },
+                  { icon: Mail, text: "shubhankar.singh@dynatechcontrols.in" },
                   { icon: Building, text: "Visit Our Office" },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 text-white/90 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3">
@@ -160,10 +180,17 @@ export default function ContactPage() {
                   <input
                     type="text"
                     id="company"
+                    value={formData.company}
+                    onChange={(e) =>
+                      setFormData({ ...formData, company: e.target.value })
+                    }
                     placeholder=" "
                     required
-                    className="peer w-full rounded-2xl pl-12 pr-5 py-4 text-slate-800 bg-white border-2 border-gray-200 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 placeholder-transparent transition-all input-focus-ring"
+                   className="peer w-full rounded-2xl pl-12 pr-5 py-4 text-slate-800 bg-white
+                    border-2 border-gray-200 focus:outline-none focus:border-red-500
+                    focus:ring-2 focus:ring-red-500/20 placeholder-transparent transition-all input-focus-ring"
                   />
+
                   <label
                     htmlFor="company"
                     className="absolute left-12 top-4 text-gray-400 text-sm transition-all pointer-events-none
@@ -184,10 +211,17 @@ export default function ContactPage() {
                     <input
                       type="text"
                       id="name"
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                       placeholder=" "
                       required
-                      className="peer w-full rounded-2xl pl-12 pr-5 py-4 text-slate-800 bg-white border-2 border-gray-200 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 placeholder-transparent transition-all input-focus-ring"
+                      className="peer w-full rounded-2xl pl-12 pr-5 py-4 text-slate-800 bg-white
+                        border-2 border-gray-200 focus:outline-none focus:border-red-500
+                        focus:ring-2 focus:ring-red-500/20 placeholder-transparent transition-all input-focus-ring"
                     />
+
                     <label
                       htmlFor="name"
                       className="absolute left-12 top-4 text-gray-400 text-sm transition-all pointer-events-none peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-red-600 peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 peer-[:not(:placeholder-shown)]:text-red-600"
@@ -204,10 +238,17 @@ export default function ContactPage() {
                     <input
                       type="email"
                       id="email"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                       placeholder=" "
                       required
-                      className="peer w-full rounded-2xl pl-12 pr-5 py-4 text-slate-800 bg-white border-2 border-gray-200 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 placeholder-transparent transition-all input-focus-ring"
+                       className="peer w-full rounded-2xl pl-12 pr-5 py-4 text-slate-800 bg-white
+             border-2 border-gray-200 focus:outline-none focus:border-red-500
+             focus:ring-2 focus:ring-red-500/20 placeholder-transparent transition-all input-focus-ring"
                     />
+
                     <label
                       htmlFor="email"
                       className="absolute left-12 top-4 text-gray-400 text-sm transition-all pointer-events-none peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-red-600 peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 peer-[:not(:placeholder-shown)]:text-red-600"
@@ -225,9 +266,16 @@ export default function ContactPage() {
                   <textarea
                     id="message"
                     rows={4}
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     placeholder=" "
-                    className="peer w-full rounded-2xl pl-12 pr-5 py-4 text-slate-800 bg-white border-2 border-gray-200 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 placeholder-transparent transition-all resize-none"
+                     className="peer w-full rounded-2xl pl-12 pr-5 py-4 text-slate-800 bg-white
+             border-2 border-gray-200 focus:outline-none focus:border-red-500
+             focus:ring-2 focus:ring-red-500/20 placeholder-transparent transition-all resize-none"
                   />
+
                   <label
                     htmlFor="message"
                     className="absolute left-12 top-4 text-gray-400 text-sm transition-all pointer-events-none peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-red-600 peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 peer-[:not(:placeholder-shown)]:text-red-600"

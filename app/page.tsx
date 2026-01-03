@@ -1,10 +1,23 @@
 import HeroLanding from "@/components/home/page";
 import AboutPage from "@/components/about/page";
 import ServicesSection from "@/components/service/page";
-import ContactPage from "@/components/contact/page";
-import ProductsGallery from "@/components/products/page";
 import ClientLayout from "@/components/Clientshell";
-import TeamTestimonialSlider from "@/components/team/page";
+import dynamic from 'next/dynamic';
+
+// 1. Dynamic Imports (Only one declaration per component)
+const ProductsGallery = dynamic(() => import('@/components/products/page'), {
+  ssr: true
+});
+
+const TeamTestimonialSlider = dynamic(() => import('@/components/team/page'), {
+  ssr: true
+});
+
+const ContactPage = dynamic(() => import('@/components/contact/page'), {
+  loading: () => <div className="h-[400px] bg-gray-50 animate-pulse rounded-3xl m-10" />,
+  ssr: true 
+});
+
 export default function Page() {
   return (
     <ClientLayout>

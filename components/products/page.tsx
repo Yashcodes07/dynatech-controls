@@ -13,26 +13,25 @@ const products = [
     { id: 4, title: "YMC BDG UPPER ASSY", category: "PAN INDIA PROJECTS", image: "/img-6.webp", description: "Dedicated precision assembly machine for repeatable operations." },
     { id: 5, title: "6 Axis Gluing Robot", category: "PAN INDIA PROJECTS", image: "/img-7.webp", description: "Accurate movement along complex paths for consistent glue beads." },
     { id: 6, title: "BMW Head Lamp ASSY", category: "PAN INDIA PROJECTS", image: "/img-8.webp", description: "Automated assembly system compliant with BMW standards." },
-    { id: 7, title: "Exported ", category: "INTERNATIONAL PROJECTS", image: "/img-10.webp", description: "Modern Assembly Line - RUSSIA" },
+    { id: 7, title: "Automated Assembly Line Machine", category: "INTERNATIONAL PROJECTS", image: "/img-10.webp", description: "Modern Assembly Line - RUSSIA" },
     { id: 8, title: "RECEPTION AREA", category: "INFRASTRUCTURE", image: "/img-12.webp", description: "" },
     { id: 9, title: "MD OFFICE", category: "INFRASTRUCTURE", image: "/img-13.webp", description: "" },
     { id: 10, title: "OFFICE AREA", category: "INFRASTRUCTURE", image: "/img-11.webp", description: "" },
-    { id: 11, title: " ", category: "INTERNATIONAL PROJECTS", image: "/Uzbek.webp", description: "Modern Assembly Line - UZBEKISTAN" },
-    { id: 12, title: " ", category: "INTERNATIONAL PROJECTS", image: "/uzbek-2.webp", description: "Modern Assembly Line - SAUDI ARABIA" },
+    { id: 11, title: "Automated Assembly Line Machine ", category: "INTERNATIONAL PROJECTS", image: "/Uzbek.webp", description: "Modern Assembly Line - UZBEKISTAN" },
+    { id: 12, title: "Automated Assembly Line Machine ", category: "INTERNATIONAL PROJECTS", image: "/uzbek-2.webp", description: "Modern Assembly Line - SAUDI ARABIA" },
     { id: 13, title: "MANUFACTURING AREA", category: "INFRASTRUCTURE", image: "/ASSEMBLY.webp", description: "" },
     { id: 14, title: "ASSEMBLY AREA", category: "INFRASTRUCTURE", image: "/asse.webp", description: "" },
+    { id: 15, title: "Automated Machines", category: "PAN INDIA PROJECTS", image: "/img-14.webp", description: "Equipped with PLC-controlled actuators, sensors, and HMI touch panels for real-time monitoring and control." },
     
 
 
 ];
 
 export default function ProductsGallery() {
-    const [active, setActive] = useState("ALL");
+  const [active, setActive] = useState("PAN INDIA PROJECTS");
 
-    const filtered =
-        active === "ALL"
-            ? products
-            : products.filter((p) => p.category === active);
+const filtered = products.filter((p) => p.category === active);
+
 
     return (
         <section className="py-16 bg-white">

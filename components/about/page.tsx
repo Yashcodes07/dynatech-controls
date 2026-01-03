@@ -71,25 +71,27 @@ export default function AboutPage() {
 
           {/* LEFT IMAGE WITH DECORATION */}
           <motion.div
-            initial="hidden"
+            // Removed initial="hidden" to prevent the element from being invisible/zero-opacity on load
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }} // Starts animation 100px before it enters view
             variants={imageVariant}
             className="relative group"
           >
             {/* Decorative background box */}
             <div className="absolute -bottom-6 -right-6 h-full w-full rounded-2xl bg-red-600/5 group-hover:bg-red-600/10 transition-colors duration-500" />
 
-            <div className="relative z-10 overflow-hidden rounded-2xl border-[12px] border-white shadow-2xl">
-
+            <div className="relative z-10 overflow-hidden rounded-2xl border-[12px] border-white shadow-2xl aspect-[4/3]">
               <Image
                 src="/img-3.webp"
                 alt="Dynatech Controls Automation"
-                width={900}
-                height={500}
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+                /* Optimized dimensions based on Lighthouse feedback */
+                width={400}
+                height={300}
+                /* Below the fold: Use lazy loading, NOT priority */
+                loading="lazy"
+                /* Explicitly telling the browser the desktop width is small */
+                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 340px"
+                className="object-cover w-full h-full"
               />
             </div>
           </motion.div>
@@ -118,9 +120,9 @@ export default function AboutPage() {
               </p>
             </motion.div>
             <motion.p variants={fadeInUp}>
-             <strong className="text-red-600">Why Choose Dyntech Controls?</strong><br></br>
+              <strong className="text-red-600">Why Choose Dyntech Controls?</strong><br></br>
               Competitive costs , quality and delivery are crucial to your success in bussiness .
-              Dynatech team will find you the best solution that really works for you. 
+              Dynatech team will find you the best solution that really works for you.
               Whether you have the seed of an idea or an innovation to get your products to market as quicklyand efficient as possible.
             </motion.p>
 

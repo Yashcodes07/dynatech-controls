@@ -13,9 +13,10 @@ const Footer = () => {
         
         {/* Column 1: Company Info */}
         <div className="space-y-4">
-          <h2 className="text-2xl font-bold text-slate-800">
-            Dynatech Controls<span className="text-blue-600">.</span>
-          </h2>
+           <div>
+              <p className="font-bold text-2xl text-red-600">Dynatech</p>
+              <p className="font-semibold text-2xl  text-black">Controls</p>
+            </div>
           <address className="not-italic text-sm leading-relaxed">
             Plot No. 239<br />
             Sector 8, Imt Manesar, Gurugram,<br />
