@@ -118,7 +118,7 @@ export default function ContactPage() {
           <div className={`relative w-full lg:w-1/2 h-[300px] lg:h-auto ${isVisible ? 'animate-slide-in-left' : ''}`}>
 
             <Image
-              src="/uzebk.webp"
+              src="/uzbek.webp"
               alt="Customer Support"
               fill
               priority // Only if it's the largest element above the fold
