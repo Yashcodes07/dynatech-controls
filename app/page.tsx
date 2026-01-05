@@ -3,6 +3,9 @@ import AboutPage from "@/components/about/page";
 import ServicesSection from "@/components/service/page";
 import ClientLayout from "@/components/Clientshell";
 import dynamic from 'next/dynamic';
+import PartnerSlider from "@/components/Partnerslider/page";
+
+
 
 // 1. Dynamic Imports (Only one declaration per component)
 const ProductsGallery = dynamic(() => import('@/components/products/page'), {
@@ -32,6 +35,11 @@ export default function Page() {
       <section id="services" className="scroll-mt-24">
         <ServicesSection />
       </section>
+       
+      {/* other sections */}
+      <PartnerSlider />
+      {/* other sections */}
+    
 
       <section id="products" className="scroll-mt-24">
         <ProductsGallery />
