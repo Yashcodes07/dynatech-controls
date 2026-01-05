@@ -40,7 +40,6 @@ export default function PartnerSlider() {
                 key={`${partner.name}-${index}`} 
                 className="flex w-[175px] items-center justify-center transition-all duration-hover:opacity-100 hover:scale-110"
               >
-                // partner slider height fix
               <div className="relative h-24 w-full flex items-center justify-center px-4">
                   <Image
                     src={partner.src}
