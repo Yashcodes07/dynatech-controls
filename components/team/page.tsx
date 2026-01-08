@@ -81,7 +81,7 @@ export default function TeamTestimonialSlider() {
   const t = testimonials[index];
 
   return (
-    <section className="relative w-full overflow-hidden min-h-[650px] md:h-[450px]">
+    <section className="relative w-full overflow-hidden min-h-[500px] md:h-[450px]">
       {/* Background */}
       <Image
         src="/img-9.webp"
