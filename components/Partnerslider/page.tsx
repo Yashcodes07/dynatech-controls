@@ -31,25 +31,27 @@ export default function PartnerSlider() {
         </div>
 
         {/* LOGO VIEWPORT */}
-        <div 
+        <div
           className="relative overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
         >
           <div className="flex w-max animate-partner-scroll gap-12 py-4 group hover:[animation-play-state:paused]">
             {allLogos.map((partner, index) => (
-              <div 
-                key={`${partner.name}-${index}`} 
+              <div
+                key={`${partner.name}-${index}`}
                 className="flex w-[175px] items-center justify-center transition-all duration-hover:opacity-100 hover:scale-110"
               >
-              <div className="relative h-24 w-full flex items-center justify-center px-4">
+                <div className="relative h-24 w-full flex items-center justify-center px-4">
                   <Image
                     src={partner.src}
                     alt={`${partner.name} logo`}
                     width={170}
                     height={90}
+                    sizes="(max-width: 640px) 120px, (max-width: 1024px) 150px, 170px"
+                    quality={60}
                     className="h-auto w-full object-contain pointer-events-none"
-                    // Performance: priority only for the first few logos if they are above the fold
                     loading={index < 6 ? "eager" : "lazy"}
                   />
+
                 </div>
               </div>
             ))}

@@ -54,7 +54,7 @@ const filtered = products.filter((p) => p.category === active);
                             key={cat}
                             onClick={() => setActive(cat)}
                             className={`relative px-4 py-2 text-sm font-bold transition-all duration-300 ${
-                                active === cat ? "text-red-600" : "text-gray-500 hover:text-red-400"
+                                active === cat ? "text-red-600" : "text-gray-500 hover:text-red-500"
                             }`}
                         >
                             {cat}

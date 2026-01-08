@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Loader2, CheckCircle, Mail, User, Building, MessageSquare } from "lucide-react";
 import Image from "next/image";
+
 export default function ContactPage() {
   const [status, setStatus] = useState("idle");
   const [isVisible, setIsVisible] = useState(false);
@@ -16,6 +17,7 @@ export default function ContactPage() {
     email: "",
     message: "",
   });
+
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setStatus("loading");
@@ -30,13 +32,7 @@ export default function ContactPage() {
       if (!res.ok) throw new Error("Failed to send");
 
       setStatus("success");
-      setFormData({
-        company: "",
-        name: "",
-        email: "",
-        message: "",
-      });
-
+      setFormData({ company: "", name: "", email: "", message: "" });
       setTimeout(() => setStatus("idle"), 3000);
     } catch (error) {
       console.error(error);
@@ -46,123 +42,97 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-gray-50 via-red-50 to-white py-10 px-4">
+    <section className="relative min-h-[100svh] bg-gradient-to-br from-gray-50 via-red-50 to-white py-8 px-3 sm:px-4">
       <style>{`
-        @keyframes slideInLeft {
-          to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes slideInRight {
-          to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes slideUp {
-          to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes scaleIn {
-          to { opacity: 1; transform: scale(1); }
-        }
-        
+        @keyframes slideInLeft { to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInRight { to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes scaleIn { to { opacity: 1; transform: scale(1); } }
+
         .animate-slide-in-left {
           opacity: 0;
           transform: translateX(-30px);
           animation: slideInLeft 0.6s ease-out forwards;
         }
-        
         .animate-slide-in-right {
           opacity: 0;
           transform: translateX(30px);
           animation: slideInRight 0.6s ease-out forwards;
         }
-        
         .animate-slide-up {
           opacity: 0;
           transform: translateY(20px);
           animation: slideUp 0.5s ease-out forwards;
         }
-        
         .animate-scale-in {
           opacity: 0;
           transform: scale(0.95);
           animation: scaleIn 0.5s ease-out forwards;
         }
-        
         .input-focus-ring {
           transition: all 0.3s ease;
         }
-        
         .input-focus-ring:focus {
           transform: translateY(-2px);
         }
-        
-        @media (prefers-reduced-motion: reduce) {
-          *, *::before, *::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
-        }
       `}</style>
 
-      {/* Floating background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      {/* Floating background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 -left-20 h-64 w-64 rounded-full bg-white blur-3xl" />
         <div className="absolute bottom-20 -right-20 h-80 w-80 rounded-full bg-white blur-3xl" />
       </div>
 
-      <div className={`relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-white shadow-2xl ${isVisible ? 'animate-scale-in' : ''}`}>
+      <div className={`relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-white shadow-2xl ${isVisible ? "animate-scale-in" : ""}`}>
         <div className="flex flex-col lg:flex-row">
 
-          {/* LEFT IMAGE SECTION */}
-          <div className={`relative w-full lg:w-1/2 h-[300px] lg:h-auto ${isVisible ? 'animate-slide-in-left' : ''}`}>
-
+          {/* LEFT IMAGE */}
+          <div className={`relative w-full lg:w-1/2 h-[240px] sm:h-[300px] lg:h-auto ${isVisible ? "animate-slide-in-left" : ""}`}>
             <Image
               src="/uzbek.webp"
               alt="Customer Support"
               fill
-              priority // Only if it's the largest element above the fold
-              sizes="(max-width: 768px) 100vw, 400px" // Tell browser it's small on desktop
+              priority
+              sizes="(max-width: 768px) 100vw, 400px"
               className="object-cover"
             />
-            {/* Gradient overlay with pattern */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red-600/80 via-red-500/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-tl from-black via-red-900 to-red-600 opacity-90 backdrop-blur-md" />
 
-            {/* Content overlay */}
-            <div className="absolute inset-0 flex flex-col justify-center px-8 lg:px-12 text-white">
-              <div className={`${isVisible ? 'animate-slide-up' : ''}`} style={{ animationDelay: '0.2s' }}>
-                <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 text-sm font-medium mb-6">
-                  <span className="flex h-2 w-2 rounded-full bg-white" />
+            <div className="absolute inset-0 flex flex-col justify-center px-5 sm:px-8 lg:px-12 text-white">
+              <div className={isVisible ? "animate-slide-up" : ""} style={{ animationDelay: "0.2s" }}>
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-3 py-1.5 text-xs sm:text-sm mb-5">
+                  <span className="h-2 w-2 rounded-full bg-white" />
                   24/7 Support Available
                 </div>
-                <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">
                   Let's Start a Conversation
                 </h2>
-                <p className="text-lg text-white/90 max-w-md">
+
+                <p className="text-sm sm:text-lg text-white/90 max-w-md">
                   Our team is ready to help you with innovative automation solutions tailored to your needs.
                 </p>
               </div>
 
-              {/* Contact info cards */}
-              <div className={`mt-8 space-y-3 ${isVisible ? 'animate-slide-up' : ''}`} style={{ animationDelay: '0.4s' }}>
-                {[
-                  { icon: Mail, text: "shubhankar.singh@dynatechcontrols.in" },
-                  { icon: Building, text: "Visit Our Office" },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 text-white/90 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3">
-                    <item.icon className="h-5 w-5" />
-                    <span className="text-sm font-medium">{item.text}</span>
+              <div className={`mt-6 space-y-3 ${isVisible ? "animate-slide-up" : ""}`} style={{ animationDelay: "0.4s" }}>
+                {[Mail, Building].map((Icon, i) => (
+                  <div key={i} className="flex items-center gap-3 text-white/90 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3">
+                    <Icon className="h-5 w-5" />
+                    <span className="text-sm font-medium">
+                      {i === 0 ? "shubhankar.singh@dynatechcontrols.in" : "Visit Our Office"}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
+
           {/* RIGHT FORM SECTION */}
           <div className={`w-full lg:w-1/2 flex items-center justify-center px-6 lg:px-12 py-12 bg-gradient-to-br from-white to-red-50/30 ${isVisible ? 'animate-slide-in-right' : ''}`}>
             <div className="w-full max-w-lg">
               <div className={`mb-8 ${isVisible ? 'animate-slide-up' : ''}`} style={{ animationDelay: '0.1s' }}>
-                <h1 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent mb-2">
+                <h1 className="text-3xl lg:text-4xl font-bold bg-gradient-to-tl from-black via-red-900 to-red-600 bg-clip-text text-transparent mb-2">
                   Contact Us
                 </h1>
                 <p className="text-gray-600">
@@ -289,7 +259,7 @@ export default function ContactPage() {
                   type="button"
                   onClick={handleSubmit}
                   disabled={status !== "idle"}
-                  className={`w-full flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 py-4 font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-red-600/50 hover:scale-[1.02] disabled:bg-gray-400 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none ${isVisible ? 'animate-slide-up' : ''}`}
+                  className={`w-full flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-tl from-black via-red-900 to-red-600  py-4 font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-red-600/50 hover:scale-[1.02] disabled:bg-gray-400 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none ${isVisible ? 'animate-slide-up' : ''}`}
                   style={{ animationDelay: '0.5s' }}
                 >
                   {status === "idle" && "Send Message"}

@@ -110,12 +110,13 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Mail, Phone, Clock } from "lucide-react";
+import { Mail, Phone, Clock, Menu, X } from "lucide-react";
 
 const sections = ["home", "about", "services", "products", "team", "contact"];
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -132,20 +133,18 @@ export default function Navbar() {
           break;
         }
       }
-
       setActive(current);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <>
       {/* TOP INFO BAR */}
-      <div className="fixed top-0 z-50 w-full bg-red-600 text-white">
+      <div className="fixed top-0 z-50 w-full bg-gradient-to-tl from-black via-red-900 to-red-600 text-white">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-6 py-2 text-xs sm:text-sm">
           <div className="flex flex-wrap gap-4">
             <span className="flex items-center gap-2">
@@ -162,7 +161,7 @@ export default function Navbar() {
       </div>
 
       {/* NAVBAR */}
-      <header className="fixed top-[32px] z-40 w-full bg-white/90 backdrop-blur-md shadow-sm">
+      <header className="fixed top-[32px] z-40 w-full bg-white backdrop-blur-md shadow-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
           {/* LOGO */}
@@ -170,8 +169,8 @@ export default function Navbar() {
             <Image
               src="/dc logo.webp"
               alt="Dynatech Controls Logo"
-              width={64}
-              height={64}
+              width={56}
+              height={56}
               priority
             />
             <div className="leading-tight">
@@ -180,7 +179,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* NAV LINKS */}
+          {/* DESKTOP NAV */}
           <nav className="relative hidden md:flex items-center gap-8 text-sm font-medium">
             {sections.map((item) => (
               <a
@@ -188,14 +187,14 @@ export default function Navbar() {
                 href={`#${item}`}
                 className={`relative pb-1 transition-colors duration-200 ${
                   active === item
-                    ? "text-red-600"
-                    : "text-gray-700 hover:text-red-600"
+                    ? "text-black/70"
+                    : "text-gray-900 hover:text-violet-800"
                 }`}
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
 
                 <span
-                  className={`absolute left-0 -bottom-1 h-[2px] w-full bg-red-600 transition-transform duration-300 origin-left ${
+                  className={`absolute left-0 -bottom-1 h-[2px] w-full bg-gradient-to-tl from-black via-red-900 to-red-600 transition-transform duration-300 origin-left ${
                     active === item ? "scale-x-100" : "scale-x-0"
                   }`}
                 />
@@ -203,20 +202,59 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA */}
+          {/* DESKTOP CTA */}
           <a
             href="/DYNATECH BROCHURE.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-red-600 px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-700"
+            className="hidden md:inline-flex rounded-full bg-gradient-to-tl from-black via-red-900 to-red-600 px-6 py-2 text-sm font-semibold text-white hover:opacity-90"
           >
             Download Brochure
           </a>
+
+          {/* MOBILE MENU BUTTON */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden rounded-lg p-2 hover:bg-gray-100"
+          >
+            {open ? <X size={26} /> : <Menu size={26} />}
+          </button>
         </div>
+
+        {/* MOBILE MENU */}
+        {open && (
+          <div className="md:hidden border-t bg-white shadow-lg">
+            <nav className="flex flex-col px-6 py-4 gap-4 text-sm font-medium">
+              {sections.map((item) => (
+                <a
+                  key={item}
+                  href={`#${item}`}
+                  onClick={() => setOpen(false)}
+                  className={`py-2 ${
+                    active === item
+                      ? "text-red-600 font-semibold"
+                      : "text-gray-800"
+                  }`}
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </a>
+              ))}
+
+              <a
+                href="/DYNATECH BROCHURE.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex justify-center rounded-full bg-gradient-to-tl from-black via-red-900 to-red-600 px-5 py-2 text-white"
+              >
+                Download Brochure
+              </a>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* SPACER */}
-      <div className="h-[120px]" />
+      <div className="h-[96px]" />
     </>
   );
 }

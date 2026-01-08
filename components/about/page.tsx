@@ -84,12 +84,11 @@ export default function AboutPage() {
               <Image
                 src="/img-3.webp"
                 alt="Dynatech Controls Automation"
-                /* Optimized dimensions based on Lighthouse feedback */
                 width={400}
                 height={300}
-                /* Below the fold: Use lazy loading, NOT priority */
                 loading="lazy"
-                /* Explicitly telling the browser the desktop width is small */
+                decoding="async"
+                quality={60}
                 sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 340px"
                 className="object-cover w-full h-full"
               />

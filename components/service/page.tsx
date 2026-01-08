@@ -71,7 +71,7 @@ export default function ServicesSection() {
                 cursor-default
                 transition-colors
                 duration-500
-                hover:bg-red-600
+                hover:bg-gradient-to-tl from-black via-red-900 to-red-600
               "
             >
               {/* Icon Section */}
