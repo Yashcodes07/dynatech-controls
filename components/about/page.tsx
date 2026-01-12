@@ -120,9 +120,9 @@ export default function AboutPage() {
             </motion.div>
             <motion.p variants={fadeInUp}>
               <strong className="text-red-600">Why Choose Dyntech Controls?</strong><br></br>
-              Competitive costs , quality and delivery are crucial to your success in bussiness .
+              Competitive costs , quality and delivery are crucial to your success in business .
               Dynatech team will find you the best solution that really works for you.
-              Whether you have the seed of an idea or an innovation to get your products to market as quicklyand efficient as possible.
+              Whether you have the seed of an idea or an innovation to get your products to market as quickly and efficient as possible.
             </motion.p>
 
             {/* Quick Stats Highlight */}

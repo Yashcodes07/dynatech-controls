@@ -6,64 +6,74 @@ import { useEffect, useState } from "react";
 const testimonials = [
   {
     name: "Mr N S Kushwaha",
-    role: "Managing Director",
+    role: "MANAGING DIRECTOR - 24+YRS ",
     description:
-      "Good support from the management. A great place to work. The managerial support motivates me to continuously raise my standards every day.",
-    experience: "24 yrs+",
+    "At DYNATECH CONTROLS, we specialize in delivering reliable, high-performance automation and engineering solutions. With a focus on precision, quality, and continuous improvement, we help our customers achieve efficient and dependable operations.",
+   
     photo: "/Ns kushwaha.webp",
     position: "50% 0%",
   },
   {
-    name: "Mr Rakesh Kumar",
-    role: "HOD - Design",
+    name: "Mrs Bhavna Kushwaha",
+    role: "DIRECTOR ADMIN - 20+ YRS",
     description:
-      "Leadership here encourages creativity, innovation, and ownership. Every project pushes us to do better.",
-    experience: "15 yrs+",
-    photo: "/rakesh (1).webp",
-    position: "50% 0%",
-  },
-  {
-    name: "Mr Shubhankar Vikram Singh",
-    role: "Project Head",
-    description:
-      "Innovation and technology are at the heart of everything we build for our clients.",
-    experience: "6 yrs+",
-    photo: "/svs-3.webp",
-    position: "50% 35%",
-  },
-  {
-    name: "Mrs Bhawna Kushwaha",
-    role: "Head of Administration",
-    description:
-      "Ensuring operational excellence through streamlined workflows and strategic resource management to support our large-scale automation initiatives.",
-    experience: "20 yrs+",
+      "At DYNATECH CONTROLS We ensure efficient coordination, accurate documentation, and smooth day-to-day operations to support timely project execution.",
+   
     photo: "/bk.webp",
     position: "50% 0%",
   },
   {
     name: "Mr Praval Singh",
-    role: "Business Development",
+    role: "AGM- BUSSINESS DEVELOPMENT - 10+ YRS",
     description:
-      "Driving growth by identifying strategic partnerships and delivering innovative automation solutions that solve complex client challenges.",
-    experience: "10 yrs+",
+      "We focus on identifying opportunities, understanding customer needs, and delivering value-driven engineering and automation solutions through strong partnerships.",
+    
     photo: "/praval (1).webp",
   },
   {
-    name: "Mr Vipin Yadav",
-    role: "HOD - Application",
+    name: "Mr Rakesh Kumar",
+    role: " HOD DESIGN -  16+ YRS",
     description:
-      "Leading the design and deployment of specialized automation applications, ensuring every system is optimized for peak technical performance.",
-    experience: "10 yrs+",
-    photo: "/vipin.webp",
+      "We lead the design and development of robust, efficient, and scalable engineering solutions, driven by precision, innovation, and performance.",
+   
+    photo: "/Rakesh(3).webp",
+    position: "50% 0%",
+  },
+  {
+    name: "Mr Vipin Yadav",
+    role: "AGM- APPLICATION - 10+ YRS",
+    description:
+      "We develop and optimize application solutions that ensure seamless system integration, reliable performance, and customer-specific functionality.",
+   
+    photo: "/Rakesh(2).webp",
+    position: "20% 0%",
+  },
+  {
+    name: "Dhanjay Prasad",
+    role: "AGM - ACCOUNTS AND ADMIN - 10+YRS",
+    description:
+      "We ensure financial discipline, regulatory compliance, and efficient administrative processes to support sustainable and well-governed operations.",
+   
+    photo: "/Dhanjay.webp",
+    position: "50% 35%",
   },
   {
     name: "Mr Amit Yadav",
-    role: "Purchase Head",
+    role: "MANAGER - INDIRECT PURCHASE",
     description:
-      "Optimizing our supply chain and procurement strategies to ensure high-quality technical components are sourced efficiently for every project.",
-    experience: "12 yrs+",
+      "We manage cost-effective and timely procurement of indirect materials and services to ensure uninterrupted operations and process efficiency.",
+    
     photo: "/amit.webp",
     position: "50% 0%",
+  },
+  {
+    name: "Mr Shubhankar Vikram Singh",
+    role: "AGM - PROJECTS - 8+ YRS",
+    description:
+      "We drive disciplined project execution through structured planning, technical coordination, and on-time delivery while meeting quality and performance standards",
+ 
+    photo: "/svs-3.webp",
+    position: "50% 35%",
   },
 ];
 
@@ -111,9 +121,9 @@ export default function TeamTestimonialSlider() {
                 key={t.photo}
                 src={t.photo}
                 alt={t.name}
-                width={176}
-                height={176}
-                className="h-full w-full object-cover transition-opacity duration-500"
+                width={196}
+                height={196}
+                className="h-full w-full object-cover transition-opacity duration-400"
                 style={{ objectPosition: t.position ?? "50% 50%" }}
               />
             </div>
@@ -136,10 +146,10 @@ export default function TeamTestimonialSlider() {
               {t.role}
             </p>
 
-            <p className="mt-2 text-sm font-semibold text-gray-400 flex items-center justify-center md:justify-start gap-2">
+            {/* <p className="mt-2 text-sm font-semibold text-gray-400 flex items-center justify-center md:justify-start gap-2">
               <span className="h-px w-6 bg-gray-500"></span>
               {t.experience} Experience
-            </p>
+            </p> */}
 
             {/* Dots */}
             <div className="mt-6 flex justify-center md:justify-start gap-3">

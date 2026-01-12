@@ -36,7 +36,8 @@ export default function HeroLanding() {
           src="/img-10.webp"
           alt="Hero Background"
           fill
-        priority
+          priority // <--- Add this
+           fetchPriority="high"
           quality={60}
           className="object-cover blur opacity-90"
         />

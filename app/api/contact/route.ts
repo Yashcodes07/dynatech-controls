@@ -44,21 +44,21 @@ export async function POST(req: Request) {
     } else {
       rateLimitMap.set(email, { count: 1, firstRequestAt: now });
     }
+await resend.emails.send({
+ from: "Contact Form <onboarding@resend.dev>",
+  to: ["Shubhankar.singh@dynatechcontrols.in"], // client email
+  subject: `New Contact Form Submission from ${name}`,
+  replyTo: email, // client can reply directly to user
+  html: `
+    <h2>New Contact Request</h2>
+    <p><strong>Company:</strong> ${company}</p>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Message:</strong></p>
+    <p>${message}</p>
+  `,
+});
 
-    await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
-      to: ["yashk40491@gmail.com"],
-      subject: `New Contact Form Submission from ${name}`,
-      replyTo: email,
-      html: `
-        <h2>New Contact Request</h2>
-        <p><strong>Company:</strong> ${company}</p>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
-    });
 
     return NextResponse.json({ success: true });
   } catch (error) {

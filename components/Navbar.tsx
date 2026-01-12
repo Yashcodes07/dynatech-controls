@@ -161,7 +161,7 @@ export default function Navbar() {
       </div>
 
       {/* NAVBAR */}
-      <header className="fixed top-[32px] z-40 w-full bg-white backdrop-blur-md shadow-sm">
+       <header className="fixed top-[56px] sm:top-[32px] z-40 w-full bg-white backdrop-blur-md shadow-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
           {/* LOGO */}
@@ -187,8 +187,8 @@ export default function Navbar() {
                 href={`#${item}`}
                 className={`relative pb-1 transition-colors duration-200 ${
                   active === item
-                    ? "text-black/70"
-                    : "text-gray-900 hover:text-violet-800"
+                    ? "text-black"
+                    : "text-gray-800 hover:text-red-800"
                 }`}
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
@@ -254,7 +254,7 @@ export default function Navbar() {
       </header>
 
       {/* SPACER */}
-      <div className="h-[96px]" />
+     <div className="h-[120px] sm:h-[96px]" />
     </>
   );
 }

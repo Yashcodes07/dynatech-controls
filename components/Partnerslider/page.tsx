@@ -25,10 +25,15 @@ export default function PartnerSlider() {
     <div className="w-full bg-white py-16">
       <div className="mx-auto max-w-7xl px-6">
         {/* Modern Header for the section */}
-        <div className="flex flex-col items-center mb-12">
-          <span className="text-red-600 font-bold text-3xl uppercase tracking-[0.4em] mb-2">Dynatech Network</span>
-          <h2 className="text-xl font-bold text-gray-900">OUR FEATURED PARTNERS</h2>
+        <div className="flex flex-col items-center text-center mb-12">
+          <span className="text-red-600 font-bold text-2xl sm:text-3xl uppercase tracking-[0.4em] mb-2">
+            Dynatech Network
+          </span>
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900">
+            OUR FEATURED PARTNERS
+          </h2>
         </div>
+
 
         {/* LOGO VIEWPORT */}
         <div
@@ -38,9 +43,9 @@ export default function PartnerSlider() {
             {allLogos.map((partner, index) => (
               <div
                 key={`${partner.name}-${index}`}
-                className="flex w-[175px] items-center justify-center transition-all duration-hover:opacity-100 hover:scale-110"
+                className="flex w-[120px] sm:w-[175px] items-center justify-center transition-all hover:scale-110"
               >
-                <div className="relative h-24 w-full flex items-center justify-center px-4">
+                <div className="relative h-16 sm:h-24 w-full flex items-center justify-center px-2 sm:px-4">
                   <Image
                     src={partner.src}
                     alt={`${partner.name} logo`}

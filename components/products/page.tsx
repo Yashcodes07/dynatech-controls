@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const categories = [ "PAN INDIA PROJECTS", "INTERNATIONAL PROJECTS", "INFRASTRUCTURE"];
+const categories = ["PAN INDIA PROJECTS", "INTERNATIONAL PROJECTS", "INFRASTRUCTURE", "OFFICE-WELLNESS AND ENGAGEMENT"];
 
 const products = [
     { id: 1, title: "Office Building", category: "INFRASTRUCTURE", image: "/building.webp", description: "Company office and infrastructure." },
@@ -22,15 +22,21 @@ const products = [
     { id: 13, title: "MANUFACTURING AREA", category: "INFRASTRUCTURE", image: "/assembly.webp", description: "" },
     { id: 14, title: "ASSEMBLY AREA", category: "INFRASTRUCTURE", image: "/asse.webp", description: "" },
     { id: 15, title: "Automated Machines", category: "PAN INDIA PROJECTS", image: "/img-14.webp", description: "Equipped with PLC-controlled actuators, sensors, and HMI touch panels for real-time monitoring and control." },
-    
+    { id: 16, title: "Dynatech Premier League", category: "OFFICE-WELLNESS AND ENGAGEMENT", image: "/actv-7.webp", description: "" },
+    { id: 17, title: "Dynatech Premier League", category: "OFFICE-WELLNESS AND ENGAGEMENT", image: "/actv-5.webp", description: "" },
+    { id: 15, title: "Dynatech Premier League", category: "OFFICE-WELLNESS AND ENGAGEMENT", image: "/actv-8.webp", description: "" },
+    { id: 18, title: "Office Tour", category: "OFFICE-WELLNESS AND ENGAGEMENT", image: "/actv-1.webp", description: "" },
+    { id: 19, title: "Office Tour", category: "OFFICE-WELLNESS AND ENGAGEMENT", image: "/actv-2.webp", description: "" },
+    { id: 20, title: "Office Tour", category: "OFFICE-WELLNESS AND ENGAGEMENT", image: "/actv-3.webp", description: "" },
+
 
 
 ];
 
 export default function ProductsGallery() {
-  const [active, setActive] = useState("PAN INDIA PROJECTS");
+    const [active, setActive] = useState("PAN INDIA PROJECTS");
 
-const filtered = products.filter((p) => p.category === active);
+    const filtered = products.filter((p) => p.category === active);
 
 
     return (
@@ -42,24 +48,23 @@ const filtered = products.filter((p) => p.category === active);
                     <span className="inline-block mb-3 rounded-full bg-red-100 px-4 py-1 text-sm font-semibold text-red-600">
                         GALLERY
                     </span>
-                    <h2 className="text-4xl font-bold text-gray-800">
+                    <h2 className="text-2xl sm:text-4xl font-bold text-gray-800">
                         Check our <span className="text-red-600">Gallery</span>
                     </h2>
                 </div>
 
                 {/* Modern Tabs */}
-                <div className="flex justify-center gap-4 md:gap-8 mb-12">
+                <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-8 mb-12">
                     {categories.map((cat) => (
                         <button
                             key={cat}
                             onClick={() => setActive(cat)}
-                            className={`relative px-4 py-2 text-sm font-bold transition-all duration-300 ${
-                                active === cat ? "text-red-600" : "text-gray-500 hover:text-red-500"
-                            }`}
+                            className={`relative px-4 py-2 text-sm font-bold transition-all duration-300 ${active === cat ? "text-red-600" : "text-gray-500 hover:text-red-500"
+                                }`}
                         >
                             {cat}
                             {active === cat && (
-                                <motion.div 
+                                <motion.div
                                     layoutId="activeTab"
                                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-red-600"
                                 />
@@ -69,7 +74,7 @@ const filtered = products.filter((p) => p.category === active);
                 </div>
 
                 {/* Animated Grid */}
-                <motion.div 
+                <motion.div
                     layout
                     className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
                 >
@@ -82,7 +87,7 @@ const filtered = products.filter((p) => p.category === active);
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 transition={{ duration: 0.4 }}
-                                className="group relative overflow-hidden rounded-2xl bg-slate-100 shadow-lg h-[350px] cursor-pointer"
+                                className="group relative overflow-hidden rounded-2xl bg-slate-100 shadow-lg h-[420px] sm:h-[350px] cursor-pointer"
                             >
                                 {/* Image with Zoom Effect */}
                                 <Image
@@ -93,16 +98,16 @@ const filtered = products.filter((p) => p.category === active);
                                 />
 
                                 {/* Modern Slide-up Content Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent translate-y-[70%] group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end p-8">
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent translate-y-[45%] sm:translate-y-[70%] group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end p-6 sm:p-8">
                                     <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                        <h3 className="text-xl font-bold text-white mb-3">
+                                        <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">
                                             {item.title}
                                         </h3>
                                         <p className="text-sm text-gray-200 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
                                             {item.description}
                                         </p>
                                     </div>
-                                    
+
                                     {/* Bottom Accent Line that grows on hover */}
                                     <div className="mt-4 h-1 w-0 bg-red-600 group-hover:w-full transition-all duration-700 delay-300" />
                                 </div>
